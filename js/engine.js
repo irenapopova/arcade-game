@@ -12,6 +12,11 @@
  * This engine makes the canvas' context (ctx) object globally available to make 
  * writing app.js a little simpler to work with.
  */
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+}
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -24,8 +29,11 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 505;
-    canvas.height = 606;
+        
+        window.addEventListener('resize', resizeCanvas, false);
+
+        
+        resizeCanvas();
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself

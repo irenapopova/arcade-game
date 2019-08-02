@@ -1,4 +1,10 @@
 body {
     text-align: center;
     font-family: sans-serif;
+   /* background-color: green;*/
+    background-image: url("https://images.unsplash.com/photo-1464646690318-73d48f8bdc15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2535&q=80")
+}
+
+.heading {
+    color: red;
 }
