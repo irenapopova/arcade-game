@@ -24,14 +24,15 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 505;
-    canvas.height = 606;
+    canvas.width = 909;
+    canvas.height = 707;
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
     function main() {
+
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
          * instructions at different speeds we need a constant value that
@@ -63,6 +64,7 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
+        console.log('Init Called');
         reset();
         lastTime = Date.now();
         main();
@@ -93,7 +95,8 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+
+      /*  player.update(); */
     }
 
     /* This function initially draws the "game level", it will then call
@@ -114,12 +117,12 @@ var Engine = (function(global) {
                 'images/grass-block.png',   // Row 1 of 2 of grass
                 'images/grass-block.png'    // Row 2 of 2 of grass
             ],
-            numRows = 6,
-            numCols = 5,
+            numRows = 7,
+            numCols = 9,
             row, col;
         
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+       /* ctx.clearRect(0,0,canvas.width,canvas.height)
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
@@ -134,7 +137,14 @@ var Engine = (function(global) {
                  * so that we get the benefits of caching these images, since
                  * we're using them over and over.
                  */
-                ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                ctx.drawImage(Resources.get(rowImages[0]), col * 101, 0 * 83);
+				ctx.drawImage(Resources.get(rowImages[1]), col * 101, 1 * 83);
+                ctx.drawImage(Resources.get(rowImages[2]), col * 101, 2 * 83);
+				ctx.drawImage(Resources.get(rowImages[3]), col * 101, 3 * 83);
+				ctx.drawImage(Resources.get(rowImages[3]), col * 101, 4 * 83);
+				ctx.drawImage(Resources.get(rowImages[3]), col * 101, 5 * 83);
+				ctx.drawImage(Resources.get(rowImages[5]), col * 101, 6 * 83);
+
             }
         }
 

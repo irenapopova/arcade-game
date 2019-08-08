@@ -1,10 +1,196 @@
+/* GLOBAL STYLE */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 body {
+    font-family: 'Press Start 2P';
     text-align: center;
     font-family: sans-serif;
    /* background-color: green;*/
-    background-image: url("https://images.unsplash.com/photo-1464646690318-73d48f8bdc15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2535&q=80")
+    background-image: url("https://images.unsplash.com/photo-1464646690318-73d48f8bdc15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2535&q=80");
+    
+    width: 100%;
+    height: auto;
 }
+
+.mbtn {
+    background-color: #4CAF50; /* Green */
+    border: 2px;
+    border-radius: 8px;
+
+    color: white;
+    padding: 0.6em 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 1em;
+  }
+  .mbtn.orange
+{
+    background-color:#da5604;
+}
+
+  .mbtn.green
+{
+    background-color:#2e7d32;
+}
+
+.mbtn.red
+{
+    background-color:#c90707;
+}
+
 
 .heading {
     color: red;
+}
+
+.h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+/* SCORE PANEL SECTION */
+#score-panel {
+    position: relative; 
+    text-align: center; 
+    width: 505px; 
+    height: 70px;
+    margin: 0 auto;
+    background-color: #4f67d3;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;     
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1.25em;
+    border: 3px solid #4f67d3;
+    box-shadow: 0 0 1.5em 0.1em #000;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.score-panel img {
+    padding: 0 5%;
+    width: 40px;
+    height: 45px;
+}
+
+.performance {
+    width: 50%;
+}
+
+.div {
+    display: block;
+}
+
+/* RULES MODAL, WIN MODAL, LOST MODAL STYLE */
+#game, 
+.rules-modal,
+.win_modal,
+.lost_modal {   
+    text-align: center;
+    font-size: 16px;
+    margin: auto;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 3%;
+    position: absolute;
+    /* background-color: #fff; */
+    /* opacity: 0.4; */ 
+    width: 505px;
+    height: 605px;
+    display: block;
+}
+
+.btn, 
+#myBtn {
+    font-family: 'Press Start 2P';
+    font-weight: bold;
+    font-size: -7.2em; 
+    line-height: 1.0em;
+    height: 3.125rem;
+    box-sizing: border-box;
+    background: #d2d2c8;
+    background-color: #fceb6e;
+    border-radius: 1.25rem; 
+    border: 2px solid #fceb6e;
+    outline: none;
+    cursor: pointer;
+}
+
+.cat-span,
+.boy-span,
+.horn-span,
+.pink-span,
+{
+padding: 0px;
+padding-right: 50px;
+}
+
+/* CHECK THIS PART AFTER GAME LOGICS IS IMPLEMENTED */
+.win_modal,
+.lost_modal {  
+  height: auto;
+  width: 25%;
+  top: 25%;
+  left: 35%;
+}
+
+.win_modal,
+.lost_modal,
+.hide-modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.rules-modal .flex {
+  align-items: flex-start;
+  padding-bottom: 3%;
+}
+
+.rules-modal img {
+  width: 40px;
+  height: 45px;
+}
+
+.rules-modal button
+.win_modal button,
+.lost_modal button {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: #2fc52f;
+  background: #fff;
+  border-radius:5px;
+  text-align: center;
+  cursor: pointer;
+  padding: .5em;
+  width: 50%;
+}
+
+.win_modal img {
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 13px auto;
+}
+
+.score{
+  color: #d2d2c8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
