@@ -36,8 +36,13 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    // This functions runs 1s per frame all the time
+
+    // moving the bug to the right
     this.xcor += this.speed*dt;
-    this.xcor = this.xcor>500?0:this.xcor;
+
+    // checking if the bug is out of the screen an then reset.
+    this.xcor = this.xcor>909?0:this.xcor;
     this.detectCrash();
 };
 
@@ -92,7 +97,7 @@ Player.prototype.handleInput = function(keypressed) {
     } 
     else if (keypressed == 'right') {
         this.xcor += this.speed;
-        if (this.xcor > 400) {
+        if (this.xcor > 909) {
             this.xcor = 400;
         }
     } 
@@ -192,7 +197,7 @@ function gameWon() {
     document.getElementById("score").innerHTML = scoreNow;
     var probability = parseInt(Math.random()*10);
     if (probability < 5 && allEnemies.length < 5) {
-        allEnemies.push(new Enemy(0,40 + Math.random()*100,40 + Math.random()*100));
+        allEnemies.push(new Enemy(0,40 + Math.random()*707,40 + Math.random()*100));
     }
 }
 /*
@@ -209,12 +214,16 @@ Modals.prototype.lose = function() {
 
 */
 function restartGame() {
+    // game starts here
+    // now zou create 5 bugs
     player.reset();
     allEnemies = [];
     allEnemies.push(
-        new Enemy(0,40 + Math.random()*100,40 + Math.random()*100),
-        new Enemy(0,60 + Math.random()*100,60 + Math.random()*100),
-        new Enemy(5,50 + Math.random()*130,70 + Math.random()*100)
+        new Enemy(0,75,40 + Math.random()*100),
+        new Enemy(0,75*2,60 + Math.random()*100),
+        new Enemy(5,75*3,70 + Math.random()*100),
+        new Enemy(5,75*4,70 + Math.random()*100),
+        new Enemy(5,75*5,70 + Math.random()*100)
         );
         var audio = document.getElementById("audio");
     audio.play();
