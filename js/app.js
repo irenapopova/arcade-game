@@ -15,10 +15,10 @@ if(gameStart === true){
     } else {
     modal.style.display = "block"; */
 
-    
+
 
 // Enemies our player must avoid
-var Enemy = function(xcor, ycor, speed) {
+var Enemy = function (xcor, ycor, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -32,28 +32,28 @@ var Enemy = function(xcor, ycor, speed) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+Enemy.prototype.update = function (dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     // This functions runs 1s per frame all the time
 
     // moving the bug to the right
-    this.xcor += this.speed*dt;
+    this.xcor += this.speed * dt;
 
     // checking if the bug is out of the screen an then reset.
-    this.xcor = this.xcor>909?0:this.xcor;
+    this.xcor = this.xcor > 909 ? 0 : this.xcor;
     this.detectCrash();
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
+Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.xcor, this.ycor);
 };
 
-Enemy.prototype.detectCrash = function() {
+Enemy.prototype.detectCrash = function () {
     if (player.xcor + 26 <= this.xcor + 90 && player.xcor + 77 >= this.xcor + 10 && player.ycor + 130 >= this.ycor + 92 && player.ycor + 72 <= this.ycor + 132) {
-        
+
         // player crash into bug
         document.getElementById("crashed").innerHTML = ++crashedTimes;
         restartGame();
@@ -66,51 +66,48 @@ Enemy.prototype.detectCrash = function() {
 
 
 
-var Player = function(xcor, ycor, speed) {
+var Player = function (xcor, ycor, speed) {
     this.xcor = xcor;
     this.ycor = ycor;
     this.speed = speed;
     this.sprite = 'images/char-boy.png';
 };
-Player.prototype.update = function(xcorNew, ycorNew) {
+Player.prototype.update = function (xcorNew, ycorNew) {
 
 
 };
-Player.prototype.render = function() {
+Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.xcor, this.ycor);
 };
-Player.prototype.reset = function() {
+Player.prototype.reset = function () {
     this.xcor = 200;
     this.ycor = 410;
     this.speed = 90;
 
-    var audio = document.getElementById("audio");
-    audio.play();
-    
+   /* var audio = document.getElementById("audio");
+    audio.play(); */
+
 };
-Player.prototype.handleInput = function(keypressed) {
-    if (keypressed == 'left') {
+Player.prototype.handleInput = function (keypressed) {
+    if (keypressed === 'left') {
         this.xcor -= this.speed;
         if (this.xcor < 2) {
             this.xcor = 2;
         }
-    } 
-    else if (keypressed == 'right') {
+    } else if (keypressed === 'right') {
         this.xcor += this.speed;
         if (this.xcor > 909) {
             this.xcor = 400;
         }
-    } 
-    else if (keypressed == 'up') {
+    } else if (keypressed === 'up') {
         this.ycor -= this.speed;
-        if (this.ycor <= (25)) { 
+        if (this.ycor <= (25)) {
             gameWon();
             return;
         }
-    }
-    else if (keypressed == 'down') {
+    } else if (keypressed === 'down') {
         this.ycor += this.speed;
-        if (this.ycor > 410) { 
+        if (this.ycor > 410) {
             this.ycor = 410;
         }
     }
@@ -122,12 +119,12 @@ Player.prototype.handleInput = function(keypressed) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
-var player = new Player(0, 0, 0);// values doesn't matter, change in reset function
+var player = new Player(0, 0, 0); // values doesn't matter, change in reset function
 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function (e) {
     var allowedKeys = {
         27: 'esc',
         37: 'left',
@@ -145,7 +142,7 @@ document.addEventListener('keyup', function(e) {
     // Prevents the frustrating window scrolling up and down when the arrow keys are pressed.
 
 
-    window.addEventListener("keydown", function(e) {
+    window.addEventListener("keydown", function (e) {
         if ([38, 40].indexOf(e.keyCode) > -1) {
             e.preventDefault();
         }
@@ -165,7 +162,7 @@ document.addEventListener('keyup', function(e) {
     };
 
     // The player moves upwards with the up arrow or "w" key.
-    
+
     if ((key == 'up' || key == 'w') && this.y > 0) {
         this.y -= 86;
         audio.src = 'sounds/OldSchool2.wav';
@@ -195,9 +192,9 @@ function gameWon() {
     player.reset();
     scoreNow += 1;
     document.getElementById("score").innerHTML = scoreNow;
-    var probability = parseInt(Math.random()*10);
+    var probability = parseInt(Math.random() * 10);
     if (probability < 5 && allEnemies.length < 5) {
-        allEnemies.push(new Enemy(0,40 + Math.random()*707,40 + Math.random()*100));
+        allEnemies.push(new Enemy(0, 40 + Math.random() * 707, 40 + Math.random() * 100));
     }
 }
 /*
@@ -219,13 +216,13 @@ function restartGame() {
     player.reset();
     allEnemies = [];
     allEnemies.push(
-        new Enemy(0,75,40 + Math.random()*100),
-        new Enemy(0,75*2,60 + Math.random()*100),
-        new Enemy(5,75*3,70 + Math.random()*100),
-        new Enemy(5,75*4,70 + Math.random()*100),
-        new Enemy(5,75*5,70 + Math.random()*100)
-        );
-        var audio = document.getElementById("audio");
+        new Enemy(0, 75, 40 + Math.random() * 100),
+        new Enemy(0, 75 * 2, 60 + Math.random() * 100),
+        new Enemy(5, 75 * 3, 70 + Math.random() * 100),
+        new Enemy(5, 75 * 4, 70 + Math.random() * 100),
+        new Enemy(5, 75 * 5, 70 + Math.random() * 100)
+    );
+    var audio = document.getElementById("audio");
     audio.play();
 
 }
@@ -234,18 +231,17 @@ var scoreNow = 0;
 var crashedTimes = 0;
 restartGame();
 // called when start is being pressed
-function startGame()
-{
+function startGame() {
 
-   document.getElementById("gameRules").style.display = "none";
-   
+    document.getElementById("gameRules").style.display = "none";
+
 }
 
-function choosePlayer( name ) {
-   document.getElementById 
+function choosePlayer(name) {
+    document.getElementById
 }
 
-document.getElementById("myBtn").onclick = start;
+document.getElementById("myBtn").onclick = startGame
 
 
 // Select player at Gamestart
