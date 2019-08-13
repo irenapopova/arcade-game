@@ -2,7 +2,7 @@
 
 /* *********Start Game ******* */
 
-/* let gameStart = false;
+let gameStart = false;
 const modal = document.getElementById('myModal');
 const modal_content = document.querySelector('gameRules');
 const btn = document.getElementById("myBtn");
@@ -13,9 +13,8 @@ window.onload = restartGame();
 if(gameStart === true){      
     modal.style.display = "none";
     } else {
-    modal.style.display = "block"; */
-
-
+    modal.style.display = "block"; 
+}
 
 // Enemies our player must avoid
 var Enemy = function (xcor, ycor, speed) {
@@ -77,6 +76,7 @@ Player.prototype.update = function (xcorNew, ycorNew) {
 
 };
 Player.prototype.render = function () {
+    
     ctx.drawImage(Resources.get(this.sprite), this.xcor, this.ycor);
 };
 Player.prototype.reset = function () {
@@ -148,14 +148,14 @@ document.addEventListener('keyup', function (e) {
         }
     }, false);
 
-    if ((key == 'left' || key == 'a') && this.x > 0) {
+    if ((e.key == 'left' || e.key == 'a') && this.x > 0) {
         this.x -= 101;
         audio.src = 'sounds/OldSchool2.wav';
         audio.play();
     };
 
     // The player moves to the right with the right arrow or "d" key.
-    if ((key == 'right' || key == 'd') && this.x < 405) {
+    if ((e.key == 'right' || e.key == 'd') && this.x < 405) {
         this.x += 101;
         audio.src = 'sounds/OldSchool2.wav';
         audio.play();
@@ -163,21 +163,21 @@ document.addEventListener('keyup', function (e) {
 
     // The player moves upwards with the up arrow or "w" key.
 
-    if ((key == 'up' || key == 'w') && this.y > 0) {
+    if ((e.key == 'up' || e.key == 'w') && this.y > 0) {
         this.y -= 86;
         audio.src = 'sounds/OldSchool2.wav';
         audio.play();
     };
 
     // The player moves downwards with the down arrow or "s" key.
-    if ((key == 'down' || key == 's') && this.y < 405) {
+    if ((e.key == 'down' || e.key == 's') && this.y < 405) {
         this.y += 86;
         audio.src = 'sounds/OldSchool2.wav';
         audio.play();
     };
 
     // The game resets when the player presses the Esc key
-    if (key == 'esc') {
+    if (e.key == 'esc') {
         player.restart();
     };
 
@@ -211,6 +211,7 @@ Modals.prototype.lose = function() {
 
 */
 function restartGame() {
+    console.log ("restartGame")
     // game starts here
     // now zou create 5 bugs
     player.reset();
@@ -225,29 +226,33 @@ function restartGame() {
     var audio = document.getElementById("audio");
     audio.play();
 
+    btn.onclick = () => {
+        lives = 3;
+        counter = 0;
+        gameStart = true;
+        modal.style.display = "none";            
+    } 
+
 }
 
 var scoreNow = 0;
 var crashedTimes = 0;
-restartGame();
+
 // called when start is being pressed
 function startGame() {
-
-    document.getElementById("gameRules").style.display = "none";
+console.log("here")
+modal_content.style.display = "none";
 
 }
 
-function choosePlayer(name) {
-    document.getElementById
-}
 
-document.getElementById("myBtn").onclick = startGame
+
 
 
 // Select player at Gamestart
 
-/*
-function choosePlayer = (selection) => {
+
+function choosePlayer(selection) {
     switch(selection){
       case "cat":
           player.sprite = 'images/char-cat-girl.png';
@@ -266,7 +271,7 @@ function choosePlayer = (selection) => {
           break;
     }
 }
-
+/** 
 console.log (player.sprite);
 
 function restartGame() {      

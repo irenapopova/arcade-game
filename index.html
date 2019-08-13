@@ -14,19 +14,20 @@
         <source src="sounds/Beep1.wav" type="audio/wav">
         </source>
     </audio>
+
     <div class="overlay">
         <h1 class="heading"><strong>Welcome to Arcade Game </strong></h1>
     </div>
 
     <div>
 
-        <button id="myBtn" type="button" class="mbtn orange">Start </button>
+        <button id="myBtn" type="button" class="mbtn orange" >Start </button>
 
         <button type="button" class="mbtn green">Score: 
             <span id="score">0 </span>  
         </button>
 
-        &nbsp;&nbsp;&nbsp; <span> <button class="mbtn red"> Crashed: <span id="crashed">0 </button></span>
+          <button class="mbtn red"> Crashed: <span id="crashed">0 </button>
 
 
 
@@ -49,7 +50,7 @@
                     onclick="choosePlayer(this.value)" value="princess"><span class="princess-span">Princess</span>
             </div>
 
-            <section id="gameRules" class="rules-modal">
+           <section id="gameRules" class="rules-modal">
                 <h2>Game rules:</h2>
                 <p class="rules">Use Arroy Keys to move player.</p>
                 <div class="arrows"><span> ← </span> <span> ↑ </span> <span> ↓ </span><span> → </span> </div>
@@ -58,7 +59,7 @@
                 <p class="rules">If hit by ladybird, game restarts.</p>
                 <p class="rules">Game Win = collect 5 points.</p>
 
-                <!-- <button id="myBtn" class="btn">Start</button>-->
+               
             </section>
         </section>
 
