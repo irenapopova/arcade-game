@@ -13,20 +13,19 @@
  * writing app.js a little simpler to work with.
  */
 
-var Engine = (function(global) {
+var Engine = function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
      */
     var doc = global.document,
         win = global.window,
-        canvas = doc.createElement('canvas'),
+        canvas = doc.getElementById("gameCanvas"),
         ctx = canvas.getContext('2d'),
         lastTime;
 
     canvas.width = 909;
     canvas.height = 707;
-    doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -204,5 +203,5 @@ var Engine = (function(global) {
     }
     loadResourcesAndInit()
 
-})(this);
+};
 

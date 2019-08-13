@@ -5,8 +5,7 @@ body {
     font-family: 'Press Start 2P';
     text-align: center;
     font-family: sans-serif;
-   /* background-color: green;*/
-    background-image: url("https://images.unsplash.com/photo-1464646690318-73d48f8bdc15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2535&q=80");
+    background-color: cyan;
     
     width: 100%;
     height: auto;
@@ -21,9 +20,7 @@ body {
     padding: 0.6em 2em;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 20px;
-    margin: 1em;
   }
   .mbtn.orange
 {
@@ -96,7 +93,6 @@ body {
 .lost_modal {   
     text-align: center;
     font-size: 16px;
-    margin: auto;
     font-weight: bold;
     border-radius: 25px;
     padding: 3%;
@@ -193,4 +189,46 @@ padding-right: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+
+#gameCanvas {
+  margin-left: 10em;
+}
+
+/* The Modal (background) */
+.popupModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.popupModalContent {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.popupClose {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.popupClose:hover,
+.popupClose:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
