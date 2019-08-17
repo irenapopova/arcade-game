@@ -12,8 +12,7 @@ const win_modal = document.getElementById('winModal'); //Declare Modal score set
 // register the restartGame function when the window loads
 // so that its called when all the resources are ready
 restartGame(); 
-var restartGame = function ()
- {
+var restartGame = function () {
     if (gameStart === true) {
         modal.style.display = "none";
     } else {
