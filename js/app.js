@@ -76,10 +76,11 @@ Enemy.prototype.detectCrash = function () {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function (xcor, ycor, speed) {
+var Player = function (xcor, ycor, speedx, speedy) {
     this.xcor = xcor;
     this.ycor = ycor;
-    this.speed = speed;
+    this.speedx = speedx;
+    this.speedy = speedy;
     this.sprite = 'images/char-boy.png';
 };
 
@@ -90,7 +91,8 @@ Player.prototype.render = function () {
 Player.prototype.reset = function () {
     this.xcor = 200;
     this.ycor = 460;
-    this.speed = 90;
+    this.speedx = 90;
+    this.speedy = 90;
 
     /* var audio = document.getElementById("audio");
      audio.play(); */
