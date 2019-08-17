@@ -100,24 +100,24 @@ Player.prototype.reset = function () {
 
 Player.prototype.handleInput = function (keypressed) {
     if (keypressed === 'left') {
-        this.xcor -= this.speed;
+        this.xcor -= this.speedx;
         if (this.xcor < 2) {
             this.xcor = 2;
         }
     } else if (keypressed === 'right') {
-        this.xcor += this.speed;
+        this.xcor += this.speedx;
         if (this.xcor > 909) {
             this.xcor = 400;
         }
     } else if (keypressed === 'up') {
-        this.ycor -= this.speed;
+        this.ycor -= this.speedy;
         if (this.ycor <= (25)) {
             showPopup("You won! 🏆");
             gameWon();
             return;
         }
     } else if (keypressed === 'down') {
-        this.ycor += this.speed;
+        this.ycor += this.speedy;
         if (this.ycor > 460) {
             this.ycor = 460;
         }
