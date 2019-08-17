@@ -13,7 +13,7 @@ const win_modal = document.getElementById('winModal'); //Declare Modal score set
 // so that its called when all the resources are ready
 changeDisplayStyle();
 
-var changeDisplayStyle = function () {
+function changeDisplayStyle() {
     if (gameStart === true) {
         modal.style.display = "none";
     } else {
