@@ -106,7 +106,7 @@ Player.prototype.handleInput = function (keypressed) {
         }
     } else if (keypressed === 'right') {
         this.xcor += this.speedx;
-        if (this.xcor > 819) {
+        if (this.xcor >= 819) {
             this.xcor = 819;
         }
     } else if (keypressed === 'up') {
