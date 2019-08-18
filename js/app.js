@@ -21,6 +21,11 @@ function changeDisplayStyle() {
     }
 }
 
+var GameCharacter = function (xcor, ycor, sprite) {
+    this.xcor = xcor;
+    this.ycor = ycor;
+    this.sprite = sprite;
+}
 
 // Enemies our player must avoid
 var Enemy = function (xcor, ycor, speed) {
@@ -29,10 +34,14 @@ var Enemy = function (xcor, ycor, speed) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    GameCharacter.call(this, xcor, ycor, 'images/enemy-bug.png');
+    this.speed = speed;
+    /*
     this.sprite = 'images/enemy-bug.png';
     this.xcor = xcor;
     this.ycor = ycor;
     this.speed = speed;
+    */
 };
 
 // Update the enemy's position, required method for game
@@ -77,11 +86,18 @@ Enemy.prototype.detectCrash = function () {
 // a handleInput() method.
 
 var Player = function (xcor, ycor, speedx, speedy) {
+
+    GameCharacter.call(this, xcor, ycor, speedx, speedy, 'images/char-boy.png');
+    this.speedx = speedx;
+    this.speedx = speedx;
+
+/*
     this.xcor = xcor;
     this.ycor = ycor;
     this.speedx = speedx;
     this.speedy = speedy;
     this.sprite = 'images/char-boy.png';
+    */
 };
 
 Player.prototype.render = function () {
@@ -128,7 +144,7 @@ Player.prototype.handleInput = function (keypressed) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
-var player = new Player(0, 0, 0, 0); // values doesn't matter, change in reset function
+var player = new Player(0, 0, 0, 0) // values doesn't matter, change in reset function
 
 
 // This listens for key presses and sends the keys to your
